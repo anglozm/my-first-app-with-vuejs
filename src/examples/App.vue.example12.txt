@@ -1,0 +1,41 @@
+<script setup>
+  import { ref } from "vue";
+
+  // By @anglozm
+  const name = 'Dynamic Vue.js';
+  const colorRed = 'color: red';
+  const colorGreen = 'color: green';
+
+  let counter = ref(0);
+
+  const increment = () => {
+    counter.value++;
+  }
+
+  const decrement = () => {
+    counter.value--;
+  }
+
+  const reset = () => {
+    counter.value = 0;
+  }
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <h2 v-if="counter < 0" :style="colorRed"> {{ counter }} </h2>
+  <h2 v-else :style="colorGreen"> {{ counter }} </h2>
+  <br/>
+  <button @click="increment"> Increment </button>
+  <br/>
+  <button @click="decrement"> Decrement </button>
+  <br/>
+  <button @click="reset"> Reset </button>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

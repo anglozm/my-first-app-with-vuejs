@@ -1,0 +1,23 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+
+  const handleClick = (message) => {
+    console.log(message);
+  }
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <!-- Event modifiers -->
+  <button @click.left="handleClick('Left click')"> Left click </button>
+  <button @click.middle="handleClick('Middle click')"> Middle click </button>
+  <button @click.right="handleClick('Right click')"> Right click </button>
+  <button @click.right.prevent="handleClick('Right click without dialog')"> Right click </button> <!-- No dialog -->
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

@@ -1,0 +1,29 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+  const objectFruit = {
+    id: 1,
+    name: 'Banana',
+    price: '1.2',
+    description: 'Potassium'
+  };
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <h3>
+    {{ objectFruit }}
+  </h3>
+  <br/>
+  <ul>
+    <li v-for="(value, key, index) in objectFruit" :key="index">
+      {{ index }} - {{ key }}: {{ value }}
+    </li>
+  </ul>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

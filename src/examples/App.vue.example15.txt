@@ -1,0 +1,85 @@
+<script setup>
+  import { ref, computed } from "vue";
+
+  const name = 'Dynamic Vue.js';
+
+  let counter = ref(0);
+  let favNumbers = ref([]);
+
+  const increment = () => {
+    counter.value++;
+  }
+
+  const decrement = () => {
+    counter.value--;
+  }
+
+  const reset = () => {
+    counter.value = 0;
+  }
+
+  const classComputed = computed(() => {
+    if (counter.value === 0) {
+      return 'zero';
+    }
+
+    if (counter.value < 0) {
+      return 'negative';
+    }
+
+    if (counter.value > 0) {
+      return 'positive';
+    }
+  })
+
+  // Challenge by @anglozm
+  const addNumber = () => {
+    favNumbers.value.push(counter.value);
+  }
+
+  const emptyList = () => {
+    favNumbers.value = [];
+  }
+
+  const isRepeatedNumber = computed(() => {
+    return (favNumbers.value.indexOf(counter.value) !== -1);
+  })
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <h2 :class="classComputed"> {{ counter }} </h2>
+  <br/>
+  <button @click="increment"> Increment </button>
+  <br/>
+  <button @click="decrement"> Decrement </button>
+  <br/>
+  <button @click="reset"> Reset counter </button>
+  <br/>
+  <button @click="emptyList()"> Empty list </button>
+  <br/>
+  <button :disabled="isRepeatedNumber" @click="addNumber"> Add number </button>
+  <br/>
+  <ul>
+    <li v-for="(num, index) in favNumbers" :key="index"> {{ num }} </li>
+  </ul>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+
+  .positive {
+    color: green;
+  }
+
+  .negative {
+    color: red;
+  }
+
+  .zero {
+    color: peru;
+  }
+</style>

@@ -1,0 +1,21 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+
+  // Method with parameters
+  const handleClick = (message) => {
+    console.log(message);
+  }
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <button v-on:click="handleClick('You clicked me 1')"> Active me 1 </button>
+  <button @click="handleClick('You clicked me 2')"> Active me 2 </button>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

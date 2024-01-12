@@ -1,0 +1,80 @@
+<script setup>
+  import { ref, computed } from "vue";
+
+  const name = 'Dynamic Vue.js';
+
+  let counter = ref(0);
+
+  const increment = () => {
+    counter.value++;
+  }
+
+  const decrement = () => {
+    counter.value--;
+  }
+
+  const reset = () => {
+    counter.value = 0;
+  }
+
+  // Using computed (Highly recommended instead of using a method)
+  const classComputed = computed(() => {
+    if (counter.value === 0) {
+      return 'zero';
+    }
+
+    if (counter.value < 0) {
+      return 'negative';
+    }
+
+    if (counter.value > 0) {
+      return 'positive';
+    }
+  })
+
+  // Or in this other way (Using a method):
+  // const classComputed = () => {
+  //   if (counter.value === 0) {
+  //     return 'zero';
+  //   }
+  //
+  //   if (counter.value < 0) {
+  //     return 'negative';
+  //   }
+  //
+  //   if (counter.value > 0) {
+  //     return 'positive';
+  //   }
+  // }
+  // And adding parenthesis -> :class="classComputed()" <- after method name, as the property value
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <h2 :class="classComputed"> {{ counter }} </h2>
+  <br/>
+  <button @click="increment"> Increment </button>
+  <br/>
+  <button @click="decrement"> Decrement </button>
+  <br/>
+  <button @click="reset"> Reset </button>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+
+  .positive {
+    color: green;
+  }
+
+  .negative {
+    color: red;
+  }
+
+  .zero {
+    color: peru;
+  }
+</style>

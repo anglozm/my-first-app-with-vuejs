@@ -1,0 +1,18 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+  const arrayFruits = ['🍌', '🍊', '🍎', '🍋'];
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <ul>
+    <li v-for="fruit in arrayFruits">{{ fruit }}</li>
+  </ul>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

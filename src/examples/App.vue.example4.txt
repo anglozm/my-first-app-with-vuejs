@@ -1,0 +1,45 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+  const arrayFruits = [
+    {
+      id: 1,
+      name: 'Banana',
+      price: '1.2',
+      description: 'Potassium'
+    },
+    {
+      id: 2,
+      name: 'Orange',
+      price: '1.5',
+      description: 'Vitamin C'
+    },
+    {
+      id: 3,
+      name: 'Apple',
+      price: '3.0',
+      description: 'Fiber'
+    },
+    {
+      id: 4,
+      name: 'Lemon',
+      price: '2.0',
+      description: 'Citrus'
+    },
+  ];
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <ul>
+    <li v-for="fruit in arrayFruits" :key="fruit.name">
+      {{ fruit.name }} - ${{ fruit.price }} - {{ fruit.description }}
+    </li>
+  </ul>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

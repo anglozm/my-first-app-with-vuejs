@@ -1,0 +1,47 @@
+<script setup>
+  import { ref } from "vue";
+
+  // By @instructor
+  const name = 'Dynamic Vue.js';
+
+  let counter = ref(0);
+
+  const increment = () => {
+    counter.value++;
+  }
+
+  const decrement = () => {
+    counter.value--;
+  }
+
+  const reset = () => {
+    counter.value = 0;
+  }
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <!-- Not optimized -->
+  <h2 :class="counter < 0 ? 'negative' : 'positive' "> {{ counter }} </h2>
+  <br/>
+  <button @click="increment"> Increment </button>
+  <br/>
+  <button @click="decrement"> Decrement </button>
+  <br/>
+  <button @click="reset"> Reset </button>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+
+  .positive {
+    color: green;
+  }
+
+  .negative {
+    color: red;
+  }
+</style>

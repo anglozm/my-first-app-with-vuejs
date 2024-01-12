@@ -1,0 +1,25 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+
+  let counter = 0;
+
+  // Counter without reactivity
+  const increment = () => {
+    counter++;
+    console.log(counter);
+  }
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <h2> {{ counter }} </h2>
+  <br/>
+  <button @click="increment"> Increment </button>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>

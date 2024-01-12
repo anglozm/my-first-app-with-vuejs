@@ -1,0 +1,29 @@
+<script setup>
+  const name = 'Dynamic Vue.js';
+  const styleColor = 'color: indianred';
+  const arrayColors = ['blue', 'green', 'yellow', 'peru'];
+  const isActive = true;
+</script>
+
+<template>
+  <h1> Hi {{ name.toUpperCase() }} </h1>
+  <br/>
+  <h2>{{ arrayColors }}</h2>
+  <br/>
+  <h2 :style="styleColor"> I'm red </h2>
+  <br/>
+  <h2 :style="`color: ${arrayColors[1]}`"> I'm green </h2>
+  <br/>
+  <h2>
+    {{ isActive ? 'I\'m active' : 'I\'m inactive' }}
+  </h2>
+  <br/>
+  <h2 v-if="isActive"> I'm active </h2>
+  <p v-else> I'm inactive </p>
+</template>
+
+<style>
+  h1 {
+    color: dodgerblue;
+  }
+</style>
